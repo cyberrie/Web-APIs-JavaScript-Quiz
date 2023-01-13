@@ -15,7 +15,7 @@ let questions = [
 
   {
     title:
-      "Which of the following keywords is used to define a varible in JavaScript",
+      "Which of the following keywords is used to define a varible in JavaScript?",
     choices: ["let", "const", "Both", "None of the above"],
     correctAnswer: "Both",
   },
@@ -167,11 +167,15 @@ function questionChoiceClick() {
     feedbackEl.textContent = "Incorrect!";
     feedbackEl.style.color = "red";
     feedbackEl.style.fontSize = "50px";
+    let wrongAudio = new Audio("./assets/sfx/incorrect.wav");
+    wrongAudio.play();
   } else {
     // Display feedback - correct
     feedbackEl.textContent = "Correct!";
     feedbackEl.style.color = "green";
     feedbackEl.style.fontSize = "50px";
+    let correctAudio = new Audio("./assets/sfx/correct.wav");
+    correctAudio.play();
   }
 
   // Display wrong/correct feedback
