@@ -12,12 +12,14 @@ let questions = [
     choices: ["Undefined", "Boolean", "Date", "Object"],
     correctAnswer: "Date",
   },
+
   {
     title:
       "Which of the following keywords is used to define a varible in JavaScript",
     choices: ["let", "const", "Both", "None of the above"],
     correctAnswer: "Both",
   },
+
   {
     title: "What does NaN stand for in JavaScript?",
     choices: ["Nandos", "Not A Number", "Grandma", "It does not exist"],
@@ -52,7 +54,7 @@ let questions = [
       "window.alert()",
       "All of the above",
     ],
-    correctAnswer: 3,
+    correctAnswer: "All of the above",
   },
 
   {
@@ -86,6 +88,7 @@ let scoresEl = document.querySelector("#choices");
 let timerEl = document.querySelector("#time");
 let startBtn = document.querySelector("#start");
 let questionsEl = document.querySelector("#questions");
+let questionTitleEl = document.querySelector("#question-title");
 let choicesEl = document.querySelector("#choices");
 let submitBtn = document.querySelector("#submit");
 let initialsEl = document.querySelector("#initials");
@@ -111,13 +114,16 @@ function startQuiz() {
   displayQuestion();
 }
 
+// let currentQuestion = questions[currentQuestionIndex];
+// console.log(currentQuestion.title);
+
 // Create a function to get the questions
 function displayQuestion() {
   // Get current question object from an array
   let currentQuestion = questions[currentQuestionIndex];
+
   // Update question title with the current question
-  let questionTitle = document.getElementById("#question-title");
-  questionTitle.textContent = currentQuestion.title;
+  questionTitleEl.textContent = currentQuestion.title;
 
   // Clear any older question choices
   choicesEl.innerHTML = "";
@@ -137,6 +143,7 @@ function displayQuestion() {
 
     // When the answer button is clicked, next question displays
     //appendChild
+    choicesEl.appendChild(choiceButton);
   });
 }
 
@@ -171,10 +178,6 @@ function clickQuestionChoice() {
       displayQuestion();
     }
   }
-
-  // if clicked choice is incorrect
-  // display wrong
-  // move onto the next question and decrement 10 secs from the timer
 
   // when there is no more questions
   // display highscores and textarea to input initials
