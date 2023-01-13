@@ -161,17 +161,18 @@ function questionChoiceClick() {
     // Display new time on the page
     timerEl.textContent = time;
     // Display feedback - wrong
-    feedbackEl.textContent = "Wrong!";
+    feedbackEl.textContent = "Incorrect!";
     feedbackEl.style.color = "red";
-    feedbackEl.style.fontSize = "100px";
+    feedbackEl.style.fontSize = "50px";
   } else {
     // Display feedback - correct
     feedbackEl.textContent = "Correct!";
     feedbackEl.style.color = "green";
-    feedbackEl.style.fontSize = "100px";
+    feedbackEl.style.fontSize = "50px";
   }
 
   // Display wrong/correct feedback
+  feedbackEl.setAttribute("class", "feedback");
 
   // move onto the next question
   currentQuestionIndex++;
