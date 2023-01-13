@@ -3,31 +3,31 @@
 let questions = [
   {
     question1: "What is JavaScript?",
-    answers: ["Game", "Programming Language", "Software", "Chrome Extension"],
+    choices: ["Game", "Programming Language", "Software", "Chrome Extension"],
     correctAnswer: "Programming Language",
   },
 
   {
     question2: "Which data type is not supported by JavaScript?",
-    answers: ["Undefined", "Boolean", "Date", "Object"],
+    choices: ["Undefined", "Boolean", "Date", "Object"],
     correctAnswer: "Date",
   },
   {
     question3:
       "Which of the following keywords is used to define a varible in JavaScript",
-    answers: ["let", "const", "Both", "None of the above"],
+    choices: ["let", "const", "Both", "None of the above"],
     correctAnswer: "Both",
   },
   {
     question4: "What does NaN stand for in JavaScript?",
-    answers: ["Nandos", "Not A Number", "Grandma", "It does not exist"],
+    choices: ["Nandos", "Not A Number", "Grandma", "It does not exist"],
     correctAnswer: "Not A Number",
   },
 
   {
     question5:
       "How can you convert the string of any base to integer in JavaScript?",
-    answers: ["forEach()", "parseInt()", "splice()", "push()"],
+    choices: ["forEach()", "parseInt()", "splice()", "push()"],
     correctAnswer: "parseInt()",
   },
 
@@ -46,7 +46,7 @@ let questions = [
   {
     question7:
       "Which of the following methods can be used to display data in some form using JavaScript",
-    answers: [
+    choices: [
       "document.write()",
       "console.log()",
       "window.alert()",
@@ -58,19 +58,19 @@ let questions = [
   {
     question8:
       "Which function is used to serialize an object into JSON string in JavaScript",
-    answers: ["parse()", "stringify()", "convert()", "None of the above"],
+    choices: ["parse()", "stringify()", "convert()", "None of the above"],
     correctAnswer: "stringify()",
   },
 
   {
     question9: "Which of the following is not a JavaScript framework",
-    answers: ["Node", "Vue", "React", "Cassandra"],
+    choices: ["Node", "Vue", "React", "Cassandra"],
     correctAnswer: "Cassandra",
   },
 
   {
     question10: "Why did JavaScript developer go broke?",
-    answers: [
+    choices: [
       "He did not handle money correctly",
       "He did not know what he was doing",
       "He used parseInt() instead of parseFloat() when calculating his finances",
@@ -113,11 +113,21 @@ function startQuiz() {
 
 // Create a function to get the questions
 function displayQuestion() {
-  // display the current question (hook into #questions) - I need to access the question in the object and display it
-  // every question contains buttons for each answer (hook into addEventListener #choices)
-  //use eventDelegation for questions to add 1 event listener
-  //otherwise need 4 for each answer (#choices)
-  // when the answer is clicked, next question appears
+  // Create a variable to store current question
+  let currentQuestion = questions[currentQuestionIndex];
+
+  // Update question title with the current question
+  let questionTitle = document.getElementById("#question-title");
+  questionTitle.textContent = currentQuestion.title;
+
+  // Clear any older question choices
+  choicesEl.innerHTML = "";
+
+  // Loop over choices
+
+  // Create a button in each answer
+  // Use event delegation for choices
+  // When the answer button is clicked, next question appears
 }
 
 // Timer Function
@@ -143,3 +153,6 @@ function getHighscores() {}
 // quiz ends if time === 0 || all the questions are answered
 // when the game ends, score is displayed
 // user can save their initials and their score
+
+// Add event listeners to relevant elements
+startBtn.addEventListener("click", startQuiz);
