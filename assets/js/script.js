@@ -1,21 +1,83 @@
 // create questions object, containing all the questions, answer choices and correct answer
 
 let questions = [
-  { question1: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 3 },
+  {
+    question1: "What is JavaScript?",
+    answers: ["Game", "Programming Language", "Software", "Chrome Extension"],
+    correctAnswer: 1,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question2: "Which data type is not supported by JavaScript?",
+    answers: ["Undefined", "Boolean", "Date", "Object"],
+    correctAnswer: 2,
+  },
+  {
+    question3:
+      "Which of the following keywords is used to define a varible in JavaScript",
+    answers: ["let", "const", "Both", "None of the above"],
+    correctAnswer: 2,
+  },
+  {
+    question4: "What does NaN stand for in JavaScript?",
+    answers: ["Nandos", "Not A Number", "Grandma", "It does not exist"],
+    correctAnswer: 1,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question5:
+      "How can you convert the string of any base to integer in JavaScript?",
+    answers: ["forEach()", "parseInt()", "splice()", "push()"],
+    correctAnswer: 1,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question6:
+      "Which of the following methods is used to access HTML elements using JavaScript?",
+    answers: [
+      "getElementById()",
+      "getElementsByClassName()",
+      "Both",
+      "None of the above",
+    ],
+    correctAnswer: 2,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question7:
+      "Which of the following methods can be used to display data in some form using JavaScript",
+    answers: [
+      "document.write()",
+      "console.log()",
+      "window.alert()",
+      "All of the above",
+    ],
+    correctAnswer: 3,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question8:
+      "Which function is used to serialize an object into JSON string in JavaScript",
+    answers: ["parse()", "stringify()", "convert()", "None of the above"],
+    correctAnswer: 1,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question9: "Which of the following is not a JavaScript framework",
+    answers: ["Node", "Vue", "React", "Cassandra"],
+    correctAnswer: 3,
+  },
 
-  { question2: "", answers: ["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2 },
+  {
+    question10: "Why did JavaScript developer go broke?",
+    answers: [
+      "He did not handle money correctly",
+      "He did not know what he was doing",
+      "He used parseInt() instead of parseFloat() when calculating his finances",
+      "Unsure",
+    ],
+    correctAnswer: 2,
+  },
 ];
 
 let currentQuestion = 0;
