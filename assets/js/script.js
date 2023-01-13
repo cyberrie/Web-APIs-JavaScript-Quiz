@@ -15,7 +15,7 @@ let questions = [
 
   {
     title:
-      "Which of the following keywords is used to define a varible in JavaScript?",
+      "Which of the following keywords is used to define a variable in JavaScript?",
     choices: ["let", "const", "Both", "None of the above"],
     correctAnswer: "Both",
   },
@@ -140,7 +140,7 @@ function displayQuestion() {
     choiceButton.setAttribute("value", choice);
 
     // Set the text content of a button element
-    // using string literals
+    // using template literals
     choiceButton.textContent = `${i + 1}. ${choice}`;
 
     // Attach click event listener to each choice
@@ -178,12 +178,13 @@ function questionChoiceClick() {
     let correctAudio = new Audio("./assets/sfx/correct.wav");
     correctAudio.play();
   }
-
+  const timeToDisplay = 1000;
   // Display wrong/correct feedback
   feedbackEl.setAttribute("class", "feedback");
+  // Time-displayed message
   setInterval(function () {
     feedbackEl.setAttribute("class", "hide");
-  }, 1000);
+  }, timeToDisplay); // 1000ms = 1s
   // move onto the next question
   currentQuestionIndex++;
 
@@ -251,8 +252,3 @@ function storeHighscores() {
 
 // Add event listener to submit button
 submitBtn.addEventListener("click", storeHighscores);
-
-// if the answer is incorrect, 10secs subtracted from the timer
-// quiz ends if time === 0 || all the questions are answered
-// when the game ends, score is displayed
-// user can save their initials and their score
