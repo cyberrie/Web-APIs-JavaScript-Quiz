@@ -2,37 +2,37 @@
 
 let questions = [
   {
-    question1: "What is JavaScript?",
+    title: "What is JavaScript?",
     choices: ["Game", "Programming Language", "Software", "Chrome Extension"],
     correctAnswer: "Programming Language",
   },
 
   {
-    question2: "Which data type is not supported by JavaScript?",
+    title: "Which data type is not supported by JavaScript?",
     choices: ["Undefined", "Boolean", "Date", "Object"],
     correctAnswer: "Date",
   },
   {
-    question3:
+    title:
       "Which of the following keywords is used to define a varible in JavaScript",
     choices: ["let", "const", "Both", "None of the above"],
     correctAnswer: "Both",
   },
   {
-    question4: "What does NaN stand for in JavaScript?",
+    title: "What does NaN stand for in JavaScript?",
     choices: ["Nandos", "Not A Number", "Grandma", "It does not exist"],
     correctAnswer: "Not A Number",
   },
 
   {
-    question5:
+    title:
       "How can you convert the string of any base to integer in JavaScript?",
     choices: ["forEach()", "parseInt()", "splice()", "push()"],
     correctAnswer: "parseInt()",
   },
 
   {
-    question6:
+    title:
       "Which of the following methods is used to access HTML elements using JavaScript?",
     answers: [
       "getElementById()",
@@ -56,20 +56,20 @@ let questions = [
   },
 
   {
-    question8:
+    title:
       "Which function is used to serialize an object into JSON string in JavaScript",
     choices: ["parse()", "stringify()", "convert()", "None of the above"],
     correctAnswer: "stringify()",
   },
 
   {
-    question9: "Which of the following is not a JavaScript framework",
+    title: "Which of the following is not a JavaScript framework",
     choices: ["Node", "Vue", "React", "Cassandra"],
     correctAnswer: "Cassandra",
   },
 
   {
-    question10: "Why did JavaScript developer go broke?",
+    title: "Why did JavaScript developer go broke?",
     choices: [
       "He did not handle money correctly",
       "He did not know what he was doing",
@@ -92,7 +92,7 @@ let initialsEl = document.querySelector("#initials");
 let feedbackEl = document.querySelector("#feedback");
 
 // Quiz state variables
-let currentQuestion = 0;
+let currentQuestionIndex = 0;
 let time = questions.length * 15;
 let timerId;
 
@@ -113,10 +113,8 @@ function startQuiz() {
 
 // Create a function to get the questions
 function displayQuestion() {
-  // Create a variable to store current question
-  let currentQuestion = questions[i];
-
-
+  // Get current question object from an array
+  let currentQuestion = questions[currentQuestionIndex];
   // Update question title with the current question
   let questionTitle = document.getElementById("#question-title");
   questionTitle.textContent = currentQuestion.title;
@@ -135,20 +133,53 @@ function displayQuestion() {
     choiceButton.textContent = i + 1 + ". " + choice;
 
     // Attach click event listener to each choice
-    choiceButton.onclick = // I need a function for this
-
+    choiceButton.onclick = clickQuestionChoice;
 
     // When the answer button is clicked, next question displays
     //appendChild
   });
-  
 }
 
-function clickQuestionChoice(){
+// Function to click question choice for each question
+function clickQuestionChoice() {
+  // If the user guessed correctly
+  let correctAnswer = questions[i].correctAnswer;
+  if (choiceButton === correctAnswer) {
+    // Display feedback - correct
+    feedbackEl.textContent = "Correct!";
+    feedbackEl.setAttribute("style", "color: green; fontSize: 3rem");
+  } else {
+    // Display feedback - wrong
+    feedbackEl.textContent = "Wrong!";
+    feedbackEl.setAttribute("style", "color: red; fontSize: 3rem");
+    // Decrement 15 secs from the clock
+    time -= 15;
 
+    if (time < 0) {
+      time = 0;
+    }
+    // Display new time on the page
+    timerEl.textContent = time;
+
+    // move onto the next question
+    currentQuestionIndex++;
+    // check time
+    // if last question quiz end
+    if (currentQuestion === questions.length) {
+      endQuiz(); // need to create this function
+    } else {
+      displayQuestion();
+    }
+  }
+
+  // if clicked choice is incorrect
+  // display wrong
+  // move onto the next question and decrement 10 secs from the timer
+
+  // when there is no more questions
+  // display highscores and textarea to input initials
+  // i need calculate highscores function
 }
-
- 
 
 // Timer Function
 function clockTick() {
@@ -164,7 +195,7 @@ function clockTick() {
 }
 
 // Function to end the quiz
-function quizEnd() {}
+function endQuiz() {}
 
 // Function to display highscores
 function getHighscores() {}
