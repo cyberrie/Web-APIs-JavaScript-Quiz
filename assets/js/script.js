@@ -94,6 +94,8 @@ let choicesEl = document.querySelector("#choices");
 let submitBtn = document.querySelector("#submit");
 let initialsEl = document.querySelector("#initials");
 let feedbackEl = document.querySelector("#feedback");
+let endScreenEl = document.querySelector("#end-screen");
+let finalScoreEl = document.querySelector("#final-score");
 
 // Quiz state variables
 let currentQuestionIndex = 0;
@@ -177,10 +179,6 @@ function clickQuestionChoice() {
   } else {
     displayQuestion();
   }
-
-  // when there is no more questions
-  // display highscores and textarea to input initials
-  // i need calculate highscores function
 }
 
 // Timer Function
@@ -197,7 +195,18 @@ function clockTick() {
 }
 
 // Function to end the quiz
-function endQuiz() {}
+function endQuiz() {
+  // Stop timer
+  clearInterval(timerId);
+
+  // Show end screen
+  endScreenEl.removeAttribute("class");
+  // Final score
+  finalScoreEl.textContent = time;
+
+  // Hide the questions div
+  questionsEl.setAttribute("class", "hide");
+}
 
 // Function to display highscores
 function getHighscores() {}
