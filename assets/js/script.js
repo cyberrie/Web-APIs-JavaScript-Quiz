@@ -1,4 +1,4 @@
-// create questions object, containing all the questions, answer choices and correct answer
+// Questions array of objects, containing question, choices and a correct answer
 
 let questions = [
   {
@@ -81,25 +81,64 @@ let questions = [
   },
 ];
 
+// DOM elements
+let scoresEl = document.querySelector("#choices");
+let timerEl = document.querySelector("#time");
+let startBtn = document.querySelector("#start");
+let questionsEl = document.querySelector("#questions");
+let choicesEl = document.querySelector("#choices");
+let submitBtn = document.querySelector("#submit");
+let initialsEl = document.querySelector("#initials");
+let feedbackEl = document.querySelector("#feedback");
+
+// Quiz state variables
 let currentQuestion = 0;
+let time = questions.length * 15;
+let timerId;
 
-// store elements in variables
-let start = document.querySelector("#start");
-let questionTitle = document.querySelector("#question-title");
-let choices = document.querySelector("#choices");
-let submit = document.querySelector("#submit");
-
-// click event on start quiz to start the quiz
-start.addEventListener("click", function (event) {});
-
-function displayFirstQuestion() {
-  document.querySelector("#question-title").append(questions.question1);
+// Create a function that will start the Quiz
+function startQuiz() {
+  // Hide start screen
+  let startScreenEl = document.getElementById("start-screen");
+  startScreenEl.setAttribute("class", "hide");
+  // Un-hide the first question
+  questionsEl.removeAttribute("class");
+  // Start Timer
+  timerId = setInterval(clockTick, 1000);
+  // Show starting time
+  timerEl.textContent = time;
+  // Display Question
+  displayQuestion();
 }
-// on 1st click event I need to display the 1st question (hook into #questions) - I need to access the question in the object and display it
-// every question contains buttons for each answer (hook into addEventListener #choices)
-//use eventDelegation for questions to add 1 event listener
-//otherwise need 4 for each answer (#choices)
-// when the answer is clicked, next question appears
+
+// Create a function to get the questions
+function displayQuestion() {
+  // display the current question (hook into #questions) - I need to access the question in the object and display it
+  // every question contains buttons for each answer (hook into addEventListener #choices)
+  //use eventDelegation for questions to add 1 event listener
+  //otherwise need 4 for each answer (#choices)
+  // when the answer is clicked, next question appears
+}
+
+// Timer Function
+function clockTick() {
+  // Update time
+  time--;
+  // Display the time
+  timerEl.textContent = time;
+
+  // Check if user ran out of time
+  if (time <= 0) {
+    quizEnd();
+  }
+}
+
+// Function to end the quiz
+function quizEnd() {}
+
+// Function to display highscores
+function getHighscores() {}
+
 // if the answer is incorrect, 10secs subtracted from the timer
 // quiz ends if time === 0 || all the questions are answered
 // when the game ends, score is displayed
