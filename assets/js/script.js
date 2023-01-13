@@ -114,7 +114,8 @@ function startQuiz() {
 // Create a function to get the questions
 function displayQuestion() {
   // Create a variable to store current question
-  let currentQuestion = questions[currentQuestionIndex];
+  let currentQuestion = questions[i];
+
 
   // Update question title with the current question
   let questionTitle = document.getElementById("#question-title");
@@ -124,11 +125,30 @@ function displayQuestion() {
   choicesEl.innerHTML = "";
 
   // Loop over choices
+  currentQuestion.choices.forEach((choice, i) => {
+    // Create a button for each choice
+    let choiceButton = document.createElement("button");
+    choiceButton.setAttribute("class", "choice");
+    choiceButton.setAttribute("value", choice);
 
-  // Create a button in each answer
-  // Use event delegation for choices
-  // When the answer button is clicked, next question appears
+    // Set the text content of a button element
+    choiceButton.textContent = i + 1 + ". " + choice;
+
+    // Attach click event listener to each choice
+    choiceButton.onclick = // I need a function for this
+
+
+    // When the answer button is clicked, next question displays
+    //appendChild
+  });
+  
 }
+
+function clickQuestionChoice(){
+
+}
+
+ 
 
 // Timer Function
 function clockTick() {
