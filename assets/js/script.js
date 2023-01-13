@@ -59,13 +59,13 @@ let questions = [
 
   {
     title:
-      "Which function is used to serialize an object into JSON string in JavaScript",
+      "Which function is used to serialize an object into JSON string in JavaScript?",
     choices: ["parse()", "stringify()", "convert()", "None of the above"],
     correctAnswer: "stringify()",
   },
 
   {
-    title: "Which of the following is not a JavaScript framework",
+    title: "Which of the following is not a JavaScript framework?",
     choices: ["Node", "Vue", "React", "Cassandra"],
     correctAnswer: "Cassandra",
   },

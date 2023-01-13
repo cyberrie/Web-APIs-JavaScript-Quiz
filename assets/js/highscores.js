@@ -7,3 +7,12 @@ for (let i = 0; i < highscores.length; i++) {
   newScore.innerHTML = `${highscores[i].initials} - ${highscores[i].score}`;
   highscoresList.appendChild(newScore);
 }
+
+// Clear the localStorage
+function clearStorage() {
+  localStorage.clear();
+  highscoresList.innerHTML = "";
+}
+// Add event listener to Clear Highscores buttons
+let clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", clearStorage);
