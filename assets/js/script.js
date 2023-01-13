@@ -118,6 +118,9 @@ function startQuiz() {
   displayQuestion();
 }
 
+// Add event listeners to start button
+startBtn.addEventListener("click", startQuiz);
+
 // Create a function to get the questions
 function displayQuestion() {
   // Get current question object from an array
@@ -182,7 +185,7 @@ function questionChoiceClick() {
   // check time
   // if last question quiz end
   if (currentQuestionIndex === questions.length) {
-    endQuiz(); // need to create this function
+    endQuiz();
   } else {
     displayQuestion();
   }
@@ -226,7 +229,6 @@ function storeHighscores() {
     let highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
     // New score format
-
     let newScore = {
       score: time,
       initials: initials,
@@ -237,15 +239,15 @@ function storeHighscores() {
     localStorage.setItem("highscores", JSON.stringify(highscores));
 
     // Redirect to new page
+    // as soon as page redirects, this function stops executing, so we need to create a new .js file
     location.href = "highscores.html";
   }
 }
+
+// Add event listener to submit button
+submitBtn.addEventListener("click", storeHighscores);
 
 // if the answer is incorrect, 10secs subtracted from the timer
 // quiz ends if time === 0 || all the questions are answered
 // when the game ends, score is displayed
 // user can save their initials and their score
-
-// Add event listeners to relevant elements
-startBtn.addEventListener("click", startQuiz);
-submitBtn.addEventListener("click", storeHighscores);
