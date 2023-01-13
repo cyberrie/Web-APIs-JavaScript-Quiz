@@ -99,7 +99,7 @@ let finalScoreEl = document.querySelector("#final-score");
 
 // Quiz state variables
 let currentQuestionIndex = 0;
-// Total time given = 15 secs per question, i.e. 100 Q = 150 secs
+// Total time given = 10 secs per question, i.e. 100 Q = 100 secs
 let time = questions.length * 10;
 // For clearance of the interval
 let timerId;
@@ -140,7 +140,8 @@ function displayQuestion() {
     choiceButton.setAttribute("value", choice);
 
     // Set the text content of a button element
-    choiceButton.textContent = i + 1 + ". " + choice;
+    // using string literals
+    choiceButton.textContent = `${i + 1}. ${choice}`;
 
     // Attach click event listener to each choice
     choiceButton.onclick = questionChoiceClick;
