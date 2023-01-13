@@ -4,31 +4,31 @@ let questions = [
   {
     question1: "What is JavaScript?",
     answers: ["Game", "Programming Language", "Software", "Chrome Extension"],
-    correctAnswer: 1,
+    correctAnswer: "Programming Language",
   },
 
   {
     question2: "Which data type is not supported by JavaScript?",
     answers: ["Undefined", "Boolean", "Date", "Object"],
-    correctAnswer: 2,
+    correctAnswer: "Date",
   },
   {
     question3:
       "Which of the following keywords is used to define a varible in JavaScript",
     answers: ["let", "const", "Both", "None of the above"],
-    correctAnswer: 2,
+    correctAnswer: "Both",
   },
   {
     question4: "What does NaN stand for in JavaScript?",
     answers: ["Nandos", "Not A Number", "Grandma", "It does not exist"],
-    correctAnswer: 1,
+    correctAnswer: "Not A Number",
   },
 
   {
     question5:
       "How can you convert the string of any base to integer in JavaScript?",
     answers: ["forEach()", "parseInt()", "splice()", "push()"],
-    correctAnswer: 1,
+    correctAnswer: "parseInt()",
   },
 
   {
@@ -40,7 +40,7 @@ let questions = [
       "Both",
       "None of the above",
     ],
-    correctAnswer: 2,
+    correctAnswer: "Both",
   },
 
   {
@@ -59,13 +59,13 @@ let questions = [
     question8:
       "Which function is used to serialize an object into JSON string in JavaScript",
     answers: ["parse()", "stringify()", "convert()", "None of the above"],
-    correctAnswer: 1,
+    correctAnswer: "stringify()",
   },
 
   {
     question9: "Which of the following is not a JavaScript framework",
     answers: ["Node", "Vue", "React", "Cassandra"],
-    correctAnswer: 3,
+    correctAnswer: "Cassandra",
   },
 
   {
@@ -76,7 +76,8 @@ let questions = [
       "He used parseInt() instead of parseFloat() when calculating his finances",
       "Unsure",
     ],
-    correctAnswer: 2,
+    correctAnswer:
+      "He used parseInt() instead of parseFloat() when calculating his finances",
   },
 ];
 
@@ -84,13 +85,16 @@ let currentQuestion = 0;
 
 // store elements in variables
 let start = document.querySelector("#start");
-let qTitle = document.querySelector("#question-title");
+let questionTitle = document.querySelector("#question-title");
 let choices = document.querySelector("#choices");
 let submit = document.querySelector("#submit");
 
 // click event on start quiz to start the quiz
 start.addEventListener("click", function (event) {});
 
+function displayFirstQuestion() {
+  document.querySelector("#question-title").append(questions.question1);
+}
 // on 1st click event I need to display the 1st question (hook into #questions) - I need to access the question in the object and display it
 // every question contains buttons for each answer (hook into addEventListener #choices)
 //use eventDelegation for questions to add 1 event listener
