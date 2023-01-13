@@ -73,10 +73,10 @@ let questions = [
   {
     title: "Why did JavaScript developer go broke?",
     choices: [
-      "He did not handle money correctly",
-      "He did not know what he was doing",
+      "Null",
+      "404 Not Found",
       "He used parseInt() instead of parseFloat() when calculating his finances",
-      "Unsure",
+      "False",
     ],
     correctAnswer:
       "He used parseInt() instead of parseFloat() when calculating his finances",
@@ -100,7 +100,7 @@ let finalScoreEl = document.querySelector("#final-score");
 // Quiz state variables
 let currentQuestionIndex = 0;
 // Total time given = 15 secs per question, i.e. 100 Q = 150 secs
-let time = questions.length * 15;
+let time = questions.length * 10;
 // For clearance of the interval
 let timerId;
 
@@ -152,8 +152,8 @@ function displayQuestion() {
 function questionChoiceClick() {
   // Check if the user guessed wrong
   if (this.value !== questions[currentQuestionIndex].correctAnswer) {
-    // Decrement 15 secs from the clock
-    time -= 15;
+    // Decrement 10 secs from the clock
+    time -= 10;
     if (time < 0) {
       time = 0;
     }
@@ -173,7 +173,9 @@ function questionChoiceClick() {
 
   // Display wrong/correct feedback
   feedbackEl.setAttribute("class", "feedback");
-
+  setInterval(function () {
+    feedbackEl.setAttribute("class", "hide");
+  }, 1000);
   // move onto the next question
   currentQuestionIndex++;
 
@@ -195,7 +197,7 @@ function clockTick() {
 
   // Check if user ran out of time
   if (time <= 0) {
-    quizEnd();
+    endQuiz();
   }
 }
 
