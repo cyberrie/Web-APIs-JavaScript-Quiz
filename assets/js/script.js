@@ -215,8 +215,31 @@ function endQuiz() {
   questionsEl.setAttribute("class", "hide");
 }
 
-// Function to display highscores
-function getHighscores() {}
+// Function to store highscores
+function storeHighscores() {
+  // Empty the input
+  // Get value of input box
+  let initials = initialsEl.value;
+
+  // Get saved scores from local storage or if not, set to an empty array
+  if (initialsEl !== "") {
+    let highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    // New score format
+
+    let newScore = {
+      score: time,
+      initials: initials,
+    };
+
+    // Push new values and save to local storage
+    highscores.push(newScore);
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // Redirect to new page
+    location.href = "highscores.html";
+  }
+}
 
 // if the answer is incorrect, 10secs subtracted from the timer
 // quiz ends if time === 0 || all the questions are answered
@@ -225,4 +248,4 @@ function getHighscores() {}
 
 // Add event listeners to relevant elements
 startBtn.addEventListener("click", startQuiz);
-submitBtn.addEventListener("click", getHighscores);
+submitBtn.addEventListener("click", storeHighscores);
