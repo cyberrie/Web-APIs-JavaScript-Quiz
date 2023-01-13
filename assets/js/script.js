@@ -47,7 +47,7 @@ let questions = [
 
   {
     title:
-      "Which of the following methods can be used to display data in some form using JavaScript",
+      "Which of the following methods can be used to display data in some form using JavaScript?",
     choices: [
       "document.write()",
       "console.log()",
@@ -99,7 +99,9 @@ let finalScoreEl = document.querySelector("#final-score");
 
 // Quiz state variables
 let currentQuestionIndex = 0;
+// Total time given = 15 secs per question, i.e. 100 Q = 150 secs
 let time = questions.length * 15;
+// For clearance of the interval
 let timerId;
 
 // Create a function that will start the Quiz
@@ -138,7 +140,7 @@ function displayQuestion() {
     choiceButton.textContent = i + 1 + ". " + choice;
 
     // Attach click event listener to each choice
-    choiceButton.onclick = clickQuestionChoice;
+    choiceButton.onclick = questionChoiceClick;
 
     // When the answer button is clicked, next question displays
     //appendChild
@@ -147,7 +149,7 @@ function displayQuestion() {
 }
 
 // Function to click question choice for each question
-function clickQuestionChoice() {
+function questionChoiceClick() {
   // Check if the user guessed wrong
   if (this.value !== questions[currentQuestionIndex].correctAnswer) {
     // Decrement 15 secs from the clock
@@ -168,6 +170,8 @@ function clickQuestionChoice() {
     feedbackEl.style.color = "green";
     feedbackEl.style.fontSize = "100px";
   }
+
+  // Display wrong/correct feedback
 
   // move onto the next question
   currentQuestionIndex++;
@@ -218,3 +222,4 @@ function getHighscores() {}
 
 // Add event listeners to relevant elements
 startBtn.addEventListener("click", startQuiz);
+submitBtn.addEventListener("click", getHighscores);
