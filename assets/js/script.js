@@ -36,7 +36,7 @@ let questions = [
   {
     title:
       "Which of the following methods is used to access HTML elements using JavaScript?",
-    answers: [
+    choices: [
       "getElementById()",
       "getElementsByClassName()",
       "Both",
@@ -46,7 +46,7 @@ let questions = [
   },
 
   {
-    question7:
+    title:
       "Which of the following methods can be used to display data in some form using JavaScript",
     choices: [
       "document.write()",
@@ -84,6 +84,7 @@ let questions = [
 ];
 
 // DOM elements
+let startScreenEl = document.querySelector("#start-screen");
 let scoresEl = document.querySelector("#choices");
 let timerEl = document.querySelector("#time");
 let startBtn = document.querySelector("#start");
@@ -102,7 +103,6 @@ let timerId;
 // Create a function that will start the Quiz
 function startQuiz() {
   // Hide start screen
-  let startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
   // Un-hide the first question
   questionsEl.removeAttribute("class");
@@ -113,9 +113,6 @@ function startQuiz() {
   // Display Question
   displayQuestion();
 }
-
-// let currentQuestion = questions[currentQuestionIndex];
-// console.log(currentQuestion.title);
 
 // Create a function to get the questions
 function displayQuestion() {
@@ -149,34 +146,36 @@ function displayQuestion() {
 
 // Function to click question choice for each question
 function clickQuestionChoice() {
-  // If the user guessed correctly
-  let correctAnswer = questions[i].correctAnswer;
-  if (choiceButton === correctAnswer) {
-    // Display feedback - correct
-    feedbackEl.textContent = "Correct!";
-    feedbackEl.setAttribute("style", "color: green; fontSize: 3rem");
-  } else {
-    // Display feedback - wrong
-    feedbackEl.textContent = "Wrong!";
-    feedbackEl.setAttribute("style", "color: red; fontSize: 3rem");
+  // Check if the user guessed wrong
+  if (this.value !== questions[currentQuestionIndex].correctAnswer) {
     // Decrement 15 secs from the clock
     time -= 15;
-
     if (time < 0) {
       time = 0;
     }
+
     // Display new time on the page
     timerEl.textContent = time;
+    // Display feedback - wrong
+    feedbackEl.textContent = "Wrong!";
+    feedbackEl.style.color = "red";
+    feedbackEl.style.fontSize = "100px";
+  } else {
+    // Display feedback - correct
+    feedbackEl.textContent = "Correct!";
+    feedbackEl.style.color = "green";
+    feedbackEl.style.fontSize = "100px";
+  }
 
-    // move onto the next question
-    currentQuestionIndex++;
-    // check time
-    // if last question quiz end
-    if (currentQuestion === questions.length) {
-      endQuiz(); // need to create this function
-    } else {
-      displayQuestion();
-    }
+  // move onto the next question
+  currentQuestionIndex++;
+
+  // check time
+  // if last question quiz end
+  if (currentQuestionIndex === questions.length) {
+    endQuiz(); // need to create this function
+  } else {
+    displayQuestion();
   }
 
   // when there is no more questions
