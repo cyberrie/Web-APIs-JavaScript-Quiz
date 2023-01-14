@@ -72,6 +72,8 @@ The following animation demonstrates the application functionality:
 
 - [Element.setAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
 
+- [Element.removeAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
+
 ## Author
 
 ©️ Helena Gilja
