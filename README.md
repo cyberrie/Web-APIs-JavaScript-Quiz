@@ -1,4 +1,4 @@
-# Web APIs: Code Quiz
+# Web APIs: JavaScript Quiz
 
 ## Table of contents
 
@@ -36,6 +36,8 @@ Create a code quiz that contains the following requirements:
 
   - When the game ends, it should display their score and give the user the ability to save their initials and their score
 
+  - P.S. 🔊 There is a sound to question feedback, so make sure to reduce your volume
+
 ## Application Demo
 
 The following animation demonstrates the application functionality:
@@ -46,17 +48,29 @@ The following animation demonstrates the application functionality:
 
 - You will be able to acces the app URL if you navigate into Settings → Pages inside this repository
 
-- Or, click on this link: [Password Generator](https://cyberrie.github.io/Password-Generator/)
+- Or, click on this link: [JavaScript Quiz]()
 
 ## Built with...
 
 - HTML
+
 - CSS
+
 - JavaScript
 
 ## What I learned
 
 ## Useful Resources
+
+- [Introduction to Web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+
+- [Manipulating Documents](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents)
+
+- [Document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+
+- [Document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
+
+- [Element.setAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
 
 ## Author
 
