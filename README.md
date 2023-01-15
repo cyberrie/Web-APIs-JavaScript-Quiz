@@ -32,11 +32,11 @@ Create a code quiz that contains the following requirements:
 
   - If the answer clicked was incorrect then subtract ten seconds time from the clock
 
-  - The quiz ends when all questions are answered or the timer reaches 0.
+  - The quiz ends when all questions are answered or the timer reaches 0
 
   - When the game ends, it should display their score and give the user the ability to save their initials and their score
 
-  - P.S. 🔊 There is a sound to question feedback, so make sure to reduce your volume
+  - P.S. 🔊 There is a sound to question feedback, so make sure to reduce your volume 🫠
 
 ## Application Demo
 
@@ -59,6 +59,14 @@ The following animation demonstrates the application functionality:
 - JavaScript
 
 ## What I learned
+
+- Web APIs: Document Object Model
+
+- Identifying, creating and selecting DOM elements, in order to change the document structure, style and content
+
+- Local Storage facts, how to store data in local storage and how to retrieve it
+
+- JavaScript Object Notation (JSON): data-interchnage format as a part of storing and retrieving data from local storage
 
 ## Useful Resources
 
