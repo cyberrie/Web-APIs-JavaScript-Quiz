@@ -10,7 +10,7 @@
 - [What I learned](#what-i-learned)
 - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 ## Overview
 
@@ -48,7 +48,7 @@ The following animation demonstrates the application functionality:
 
 - You will be able to acces the app URL if you navigate into Settings → Pages inside this repository
 
-- Or, click on this link: [JavaScript Quiz]()
+- Or, click on this link: [JavaScript Quiz](https://cyberrie.github.io/Web-APIs-JavaScript-Quiz/)
 
 ## Built with...
 
@@ -88,4 +88,6 @@ The following animation demonstrates the application functionality:
 
 - GitHub - [cyberrie](https://github.com/cyberrie)
 
-## Acknowledgments
+## License
+
+N/A
